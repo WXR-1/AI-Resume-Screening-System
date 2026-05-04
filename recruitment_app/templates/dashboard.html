@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>HR Dashboard</h1>
+            </div>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="application-container">
+        <div class="form-wrapper">
+            <h2>Candidate Management</h2>
+            <p class="form-subtitle">Review incoming applications and update status</p>
+
+    {% if data %}
+            <div class="table-responsive">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Position</th>
+                            <th>Experience</th>
+                            <th>Skills</th>
+                            <th>Resume</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[6] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>
+                                {% if row[8] %}
+                                    <a href="/resumes/{{ row[8] }}" target="_blank">View Resume</a>
+                                {% else %}
+                                    No Resume
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if row[7] == "Selected" %}
+                                    <span class="status-selected">{{ row[7] }}</span>
+                                {% elif row[7] == "Rejected" %}
+                                    <span class="status-rejected">{{ row[7] }}</span>
+                                {% else %}
+                                    <span class="status-applied">{{ row[7] }}</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ row[9] }}</td>
+                            <td>
+                                <div class="action-buttons dashboard-actions">
+                                    <a class="btn select-btn" href="/update/{{ row[0] }}/Selected">Select</a>
+                                    <a class="btn reject-btn" href="/update/{{ row[0] }}/Rejected">Reject</a>
+                                    <a class="btn delete-btn" href="/delete/{{ row[0] }}">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <p>No candidates have applied yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>

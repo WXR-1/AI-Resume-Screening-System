@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Application</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🚀 TechCorp Recruitment</h1>
+            </div>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="application-container">
+        <div class="form-wrapper">
+            <h2>📝 Application Form</h2>
+            <p class="form-subtitle">Tell us about yourself</p>
+
+            <form method="POST" enctype="multipart/form-data" class="application-form">
+                
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Professional Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="position">Position Applied For *</label>
+                        <select id="position" name="position" required>
+                            <option value="">-- Select a Position --</option>
+                            <option value="Senior Software Engineer">Senior Software Engineer</option>
+                            <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                            <option value="Data Scientist">Data Scientist</option>
+                            <option value="Product Manager">Product Manager</option>
+                            <option value="DevOps Engineer">DevOps Engineer</option>
+                            <option value="Frontend Developer">Frontend Developer</option>
+                            <option value="Backend Developer">Backend Developer</option>
+                            <option value="UI/UX Designer">UI/UX Designer</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience *</label>
+                        <input type="number" id="experience" name="experience" min="0" max="70" placeholder="5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills">Key Skills *</label>
+                        <textarea id="skills" name="skills" placeholder="e.g., Python, Machine Learning, Cloud Computing, etc." rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Resume Upload</h3>
+                    
+                    <div class="form-group">
+                        <label for="resume">Upload Your Resume *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt" required>
+                            <span class="file-label">📄 Choose File (PDF, DOC, DOCX, TXT)</span>
+                        </div>
+                        <small>Max file size: 5MB</small>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">🚀 Submit Application</button>
+                    <a href="/" class="btn-cancel">Cancel</a>
+                </div>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-success">
+                            {% for message in messages %}
+                                <p>✓ {{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 TechCorp. All rights reserved. | Powered by AI Recruitment System</p>
+    </footer>
+</body>
+</html>

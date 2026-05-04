@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Upload Your Resume 📄</h2>
+        <p>Select your resume file to apply.</p>
+
+        <!-- UPLOAD FORM -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" required>
+            <button type="submit">Upload Resume</button>
+        </form>
+
+        <br><br>
+
+        <!-- BACK BUTTON -->
+        <a href="/applicant-dashboard">
+            <button style="background-color: blue;">Back</button>
+        </a>
+
+        <br><br>
+
+        <!-- LOGOUT -->
+        <a href="/logout">
+            <button style="background-color:red;">Logout</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

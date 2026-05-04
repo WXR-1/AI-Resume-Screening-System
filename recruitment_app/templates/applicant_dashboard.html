@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applicant Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome Applicant 👋</h2>
+        <p>Apply for jobs and upload your resume.</p>
+
+        <!-- APPLY FORM -->
+        <form action="/apply" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="text" name="skills" placeholder="Enter your skills" required>
+            <input type="file" name="resume" accept=".pdf,.doc,.docx,.txt" required>
+
+            <button type="submit">Apply for Job</button>
+        </form>
+
+        <br><br>
+
+        <!-- UPLOAD RESUME -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" required>
+            <button style="background-color: green;">Upload Resume</button>
+        </form>
+
+        <br><br>
+
+        <!-- LOGOUT -->
+        <a href="/logout">
+            <button style="background-color:red;">Logout</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

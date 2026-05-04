@@ -1,0 +1,7 @@
+pdfplumber
+python-docx
+python-dotenv
+requests
+psycopg2-binary
+Flask
+Werkzeug
